@@ -1,5 +1,5 @@
 #required installs:
-#pip3 install --user requests python-dateutil
+#pip3 install --user requests python-dateutil  pychromecast gtts
 import requests
 import dateutil.parser
 import datetime
@@ -67,6 +67,8 @@ class sayText:
     devices = []
     for C in cc:
       devices.append(C.device.friendly_name)
+    if len(devices)=0
+      devices.append('noChromeCast')
     return devices
   def say(self, text, device, tag): #, volume=1.0):
     now = datetime.datetime.now()
