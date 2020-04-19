@@ -172,10 +172,11 @@ class MyGui:
     self.device = tk.StringVar(self.gui)
     if len(self.DEVICES)==0 :
       castState = 'disabled'
-      self.device.set('unknown')
+      self.DEVICES.append('noChromeCast')
     else:
       castState = 'normal'
-      self.device.set(self.DEVICES[0])
+
+    self.device.set(self.DEVICES[0])
     self.announceW = tk.Checkbutton(self.gui, text='Broadcast?', state=castState, variable=self.announce)#turn on broadcast
     self.announceW.grid(row=rw, column=0)
     self.testcastbutton = tk.Button(self.gui, text='Test', state=castState, command=self.testcast) #test broadcast
@@ -242,7 +243,7 @@ class MyGui:
     for choice in self.DEVICES:
       if choice != current:
         menu.add_command(label=choice, command=tk._setit(self.device, choice))
-    if len(DEVICES)==0 :
+    if len(self.DEVICES)==0 :
       castState = 'disabled'
     else:
       castState = 'normal'
