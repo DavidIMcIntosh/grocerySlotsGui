@@ -171,6 +171,7 @@ class MyGui:
       self.DEVICES = sayText.getChromeCastDevices()
     self.device = tk.StringVar(self.gui)
     if len(self.DEVICES)==0 :
+      self.announce.set(0)
       castState = 'disabled'
       self.DEVICES.append('noChromeCast')
     else:
@@ -244,8 +245,10 @@ class MyGui:
       if choice != current:
         menu.add_command(label=choice, command=tk._setit(self.device, choice))
     if len(self.DEVICES)==0 :
+      self.announce.set(0)
       castState = 'disabled'
     else:
+      self.announce.set(1)
       castState = 'normal'
     self.announceW.config(state=castState)
     self.testcastbutton.config(state=castState) #test broadcast
