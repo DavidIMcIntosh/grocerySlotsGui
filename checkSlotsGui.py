@@ -67,8 +67,6 @@ class sayText:
     devices = []
     for C in cc:
       devices.append(C.device.friendly_name)
-    if len(devices)==0:
-      devices.append('noChromeCast')
     return devices
   def say(self, text, device, tag): #, volume=1.0):
     now = datetime.datetime.now()
@@ -164,13 +162,20 @@ class MyGui:
     rw += 1
     self.announce = tk.IntVar()
     if noChromeCast:
+      chromeCastState = 'disabled'
       self.announce.set(0)
-      castState = 'disabled'
-      self.DEVICES = ['noChromeCast']
+      self.DEVICES = []
     else:
+      chromeCastState = 'normal'
       self.announce.set(1)
-      castState = 'normal'
       self.DEVICES = sayText.getChromeCastDevices()
+    self.device = tk.StringVar(self.gui)
+    if len(self.DEVICES)==0 :
+      castState = 'disabled'
+      self.device.set('unknown')
+    else:
+      castState = 'normal'
+      self.device.set(self.DEVICES[0])
     self.announceW = tk.Checkbutton(self.gui, text='Broadcast?', state=castState, variable=self.announce)#turn on broadcast
     self.announceW.grid(row=rw, column=0)
     self.testcastbutton = tk.Button(self.gui, text='Test', state=castState, command=self.testcast) #test broadcast
@@ -178,11 +183,9 @@ class MyGui:
     rw += 1
     self.label5 = tk.Label(self.gui, text='Broadcast device:', state=castState)
     self.label5.grid(row=rw, column=0)
-    self.refreshDevicesButton = tk.Button(self.gui, text='Refresh Devices', state=castState, command=self.refreshDevices)
+    self.refreshDevicesButton = tk.Button(self.gui, text='Refresh Devices', state=chromeCastState, command=self.refreshDevices)
     self.refreshDevicesButton.grid(row=rw, column=1, sticky=tk.W)
     rw += 1
-    self.device = tk.StringVar(self.gui)
-    self.device.set(self.DEVICES[0])
     self.deviceSelector = tk.OptionMenu(self.gui, self.device, *self.DEVICES )
     self.deviceSelector.config(state=castState)
     self.deviceSelector.grid(row=rw, column=0, columnspan=2)
@@ -239,6 +242,19 @@ class MyGui:
     for choice in self.DEVICES:
       if choice != current:
         menu.add_command(label=choice, command=tk._setit(self.device, choice))
+    if len(DEVICES)==0 :
+      castState = 'disabled'
+    else:
+      castState = 'normal'
+    self.announceW.config(state=castState)
+    self.testcastbutton.config(state=castState) #test broadcast
+    self.label5.config(state=castState)
+    self.deviceSelector.config(state=castState)
+    self.label1.config(state=castState)
+    self.startServerbutton.config(state=castState) #test broadcast
+    self.serverDir.config(state=castState)
+    self.label7.config(state=castState)
+    self.serverIP.config(state=castState)
   def doCheckNow(self):
     if self.pollButton.get() == 0:
       self.init_cookies = get_cookies(self.site.get())
