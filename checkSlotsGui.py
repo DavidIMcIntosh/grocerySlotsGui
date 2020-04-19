@@ -62,21 +62,18 @@ class sayText:
     self.serverDir = serverDir
     self.HTTP_IP = HttpIp
     self.HTTP_PORT = HttpPort
-
   def getChromeCastDevices():
     cc = pychromecast.get_chromecasts()
     devices = []
     for C in cc:
       devices.append(C.device.friendly_name)
     return devices
-  
   def say(self, text, device, tag): #, volume=1.0):
     now = datetime.datetime.now()
     mp3File = '/%s_%s.mp3' % (tag, now.strftime('%Y-%m-%d_%H.%M.%S'))
     audio_path = '%s%s' % (self.serverDir,mp3File)
     speech = gtts.gTTS(text = text, lang = 'en', slow = False)
     speech.save(audio_path)
-  
     cc = pychromecast.get_chromecasts()
     cast = next(C for C in cc if C.device.friendly_name == device)
     #cast.wait()
@@ -224,12 +221,10 @@ class MyGui:
     self.scrollb.grid(row=3, column=3, rowspan=rwspan, sticky='ns') 
     self.message.config(yscrollcommand=self.scrollb.set)
     self.message.grid(row=3, column=2, rowspan=rwspan)
-  
     self.site.trace("w", self.siteChanged)
     self.init_cookies = None
     self.prev_first_slot = None
     self.scheduledId = None
-
   def testcast(self):
     self.say('Hello World')
   def refreshDevices(self):
@@ -304,7 +299,6 @@ def main():
   )
   parser.add_argument('--noChromeCast', action='store_true',
     help='No chromecast available')
-
   args = parser.parse_args()
   gui = tk.Tk()
   app = MyGui(gui, args.noChromeCast)
