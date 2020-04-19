@@ -35,10 +35,10 @@ GUI usage
     pip3 install --user requests python-dateutil
     ```
 2. Run the script:
-    python .\chedkSlotsGui.py
+    python .\checkSlotsGui.py
     
 3. If you don't have any ChromeCast devices, 
-    python .\chedkSlotsGui.py --noChromeCast
+    python .\checkSlotsGui.py --noChromeCast
 
 
 Getting audible announcements
