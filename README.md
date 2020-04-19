@@ -2,6 +2,8 @@ Grocery Slots
 =============
 This program will periodically check Loblaws or Superstore for open grocery pick-up slots (by default, every 60 seconds), printing open slots to the terminal. The program can also announce via any Chromecast-compatible device (including Google Home) when a new spot opens.
 
+checkSlotsGui.py is a self-contained GUI that does not require any options.
+
 Requirements
 ------------
 * Python 3
@@ -11,7 +13,7 @@ Usage
 1. Install necessary Python libraries.
 
     ```
-    pip3 install --user requests dateutil
+    pip3 install --user requests python-dateutil
     ```
 
 2. Find your Loblaws location ID.
@@ -24,6 +26,20 @@ Usage
     ```
     python3 check_slots.py --location 1007
     ```
+    
+GUI usage
+---------
+1. Install necessary Python libraries.
+
+    ```
+    pip3 install --user requests python-dateutil
+    ```
+2. Run the script:
+    python .\chedkSlotsGui.py
+    
+3. If you don't have any ChromeCast devices, 
+    python .\chedkSlotsGui.py --noChromeCast
+
 
 Getting audible announcements
 -----------------------------
