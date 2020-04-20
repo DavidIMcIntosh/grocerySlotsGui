@@ -297,8 +297,9 @@ class MyGui:
       self.doCheck()
       dly = int(self.delay.get())
       now = datetime.datetime.now()
-      self.labelNext.config(text='Next check at %s' % (now + datetime.timedelta(seconds=dly)).strftime('%H:%M:%S (%Y-%m-%d)'))
-      self.scheduledId = self.gui.after(dly*1000, self.doCheckPeriodic)
+      if self.pollButton.get() == 1:
+        self.labelNext.config(text='Next check at %s' % (now + datetime.timedelta(seconds=dly)).strftime('%H:%M:%S (%Y-%m-%d)'))
+        self.scheduledId = self.gui.after(dly*1000, self.doCheckPeriodic)
   def startpoll(self):
     if self.pollButton.get() == 1:
       self.init_cookies = get_cookies(self.site.get())
