@@ -6,8 +6,8 @@ Requirements
 ------------
 * Python 3
 
-Usage
------
+Installation and Startup
+------------------------
 1. Instally Python3 if its not already on the system.
 
 2. Install necessary Python libraries (there seems to be some variation about how to install the "dateutil" library):
