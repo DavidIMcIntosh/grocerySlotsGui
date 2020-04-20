@@ -14,7 +14,7 @@ Requirements
 
 Installation and Startup
 ------------------------
-1. Instally Python3 if its not already on the system.
+1. Install Python3 if its not already on the system.
 1. Install necessary Python libraries (there seems to be some variation about how to install the "dateutil" library):
     ```
     pip3 install --user requests python-dateutil pychromecast gtts
