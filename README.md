@@ -37,9 +37,13 @@ usage: checkSlotsGui.py [--help] [--noChromeCast]
 ```
 
 1. In the GUI, you will need to enter your Store Location string.
+
     i. Go to https://www.loblaws.ca/store-locator
+    
     ii. Choose a location and click the "Location Details" link
+    
     iii. Find the integer ID at the end of the URL (e.g., `1007` from https://www.loblaws.ca/store-locator/details/1007)
+    
    The 4 digit string at the end of this URL must be entered into the Store Location box in the GUI.
    If you want your store location to always be the default when you start the GUI, adjust the "DEFAULT_STORE=1007" line in checkSlotsGui.py.
 
