@@ -49,7 +49,7 @@ Usage: checkSlotsGui.py [--help] [--noChromeCast]
 
 2. To poll your store periodically and show latest results, check the "Poll fo Openings" checkbox.  The frequency of checks is controlled with the "Check frequency (seconds):" entry.  The "Check Now" button (at any time) will cause an immediate check of the store.
 
-3. Period polling needs to be restarted after any change to "Store Type".
+3. Periodic polling needs to be restarted after any change to "Store Type".
 
 4. If you want any change in the earliest timeslot to be announced on a Chromecast device (e.g. GoogleHome), click the "Start Server" button (this only needs to be done once), select the device with the "Broadcast Device" drop-down, and make sure the "Broadcast?" checkbox is checked.  These can be adjusted at any time, and the current values will be used at the next Check time.
 
