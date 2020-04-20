@@ -66,4 +66,4 @@ usage: checkSlotsGui.py [--help] [--noChromeCast]
 
 History
 -------
-Based on "groceryslots" (check_slots.py) by Jeffrey Wintersinger https://github.com/jwintersinger/groceryslots
+Based on "groceryslots" (check_slots.py) by Jeffrey Wintersinger https://github.com/jwintersinger/groceryslots. Other Loblaws family sites contributed by Daniel McIntosh.
