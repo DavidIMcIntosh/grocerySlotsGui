@@ -320,8 +320,7 @@ def main():
     description='Query PC-umbrella grocery store (Loblaws, Superstore, etc.) for open pick-up slots',
     formatter_class=argparse.ArgumentDefaultsHelpFormatter
   )
-  parser.add_argument('--noChromeCast', action='store_true',
-    help='No chromecast available')
+  parser.add_argument('--noChromeCast', action='store_true', help='No chromecast available')
   args = parser.parse_args()
   gui = tk.Tk()
   app = MyGui(gui, args.noChromeCast)
