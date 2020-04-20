@@ -23,7 +23,7 @@ Installation and Startup
     1. Go to https://www.loblaws.ca/store-locator
     1. Choose a location and click the "Location Details" link
     1. Find the integer ID at the end of the URL (e.g., `1007` from https://www.loblaws.ca/store-locator/details/1007)
-1. Run the main script.
+1. Run the script:
     ```
     python .\checkSlotsGui.py
     ```
