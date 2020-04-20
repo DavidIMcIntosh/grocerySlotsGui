@@ -5,16 +5,11 @@ This program will periodically check any of the Loblaws family of stores (Loblaw
 Requirements
 ------------
 * Python 3
-
-Python Libraries:
-
-* requests
-
-* python-dateutil
-
-* pychromecast
-
-* gtts
+* Python Libraries:
+  * requests
+  * python-dateutil
+  * pychromecast
+  * gtts
 
 
 Installation and Startup
