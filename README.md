@@ -19,7 +19,9 @@ Usage
 3. Find your Loblaws Store Location ID:
 
     i. Go to https://www.loblaws.ca/store-locator
+    
     ii. Choose a location and click the "Location Details" link
+    
     iii. Find the integer ID at the end of the URL (e.g., `1007` from https://www.loblaws.ca/store-locator/details/1007)
 
 4. Run the main script.
