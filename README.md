@@ -33,7 +33,7 @@ Usage
 GUI Usage reference
 ---------------
 ```
-usage: checkSlotsGui.py [--help] [--noChromeCast]
+Usage: checkSlotsGui.py [--help] [--noChromeCast]
 ```
 
 1. In the GUI, you will need to enter your Store Location string.
