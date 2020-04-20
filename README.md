@@ -1,6 +1,6 @@
 Grocery Slots GUI
 =================
-This program will periodically check any of the Loblaws family of stores (Loblaws, Superstore, Valumart, Nofrills, Zehrs so far) for open grocery pick-up slots (by default, every 5 minutes), displaying the open slots in a GUI widget. The program can also announce via any Chromecast-compatible device (including Google Home) when a new spot opens.
+This program will periodically check any of the Loblaws family of stores (Loblaws, Superstore, Valumart, Nofrills, Zehrs so far) for open grocery pick-up slots, displaying the open slots in a GUI widget.  By default, it will check every 5 minutes. The program can also announce via any Chromecast-compatible device (including Google Home) when a new spot opens.
 
 Requirements
 ------------
