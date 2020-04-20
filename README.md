@@ -8,18 +8,20 @@ Requirements
 
 Usage
 -----
-1. Install necessary Python libraries (there seems to be some variation about how to install the "dateutil" library):
+1. Instally Python3 if its not already on the system.
+
+2. Install necessary Python libraries (there seems to be some variation about how to install the "dateutil" library):
 
     ```
     pip3 install --user requests python-dateutil pychromecast gtts
     ```
 
-2. Find your Loblaws location ID.
-    1. Go to https://www.loblaws.ca/store-locator
-    2. Choose a location and click the "Location Details" link
-    3. Find the integer ID at the end of the URL (e.g., `1007` from https://www.loblaws.ca/store-locator/details/1007)
+3. Find your Loblaws Store Location ID:
+    i. Go to https://www.loblaws.ca/store-locator
+    ii. Choose a location and click the "Location Details" link
+    iii. Find the integer ID at the end of the URL (e.g., `1007` from https://www.loblaws.ca/store-locator/details/1007)
 
-3. Run the main script.
+4. Run the main script.
 
     ```
     python .\checkSlotsGui.py
