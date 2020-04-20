@@ -46,7 +46,7 @@ Usage: checkSlotsGui.py [--help] [--noChromeCast]
 1. If you want any change in the earliest timeslot to be announced on a Chromecast device (e.g. GoogleHome), click the "Start Server" button (this only needs to be done once), select the device with the "Broadcast Device" drop-down, and make sure the "Broadcast?" checkbox is checked.  These can be adjusted at any time, and the current values will be used at the next Check time.
 1. Clicking the "Refresh Devices" at any time will refresh the list of available Chromecast devices.
 1. Technical detail: the "Start Server" button starts up an HTTP server in a subdirectory "audio" of the directory containing the checkSlotsGui.py script.  If you want to start such a server manually in some other location, you do need to tell the GUI where the root of this server is with the "Chromecast Server Directory". The GUI will put the announcements into this directory for ChromeCast and then broadcast the announcement file to the chromecast devices.  Once you have a server running (either by pressing the "Start Server" button or starting a server in a separate console), you can test the Broadcast capabilities with the "Test" button, which will broadcast "Hello World" to the selected Broadcast device.
-1. If you don't have any ChromeCast devices and want to prevent the GUI from even checking for ChromeCast devices, use the --noChromeCast startup option.  If you do this, you do not need to install the pychromecast and gtts libraries: 
+1. If you don't have any ChromeCast devices and want to prevent the GUI from even checking for ChromeCast devices, use the --noChromeCast startup option: 
     ```
     python .\checkSlotsGui.py --noChromeCast
     ```
