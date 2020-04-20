@@ -57,3 +57,6 @@ usage: checkSlotsGui.py [--help] [--noChromeCast]
     
 8. Technical detail: The Loblaws sites seem to keep their time-points in Universal Cordinated Time (UCT or GMT).  To display them in local time, they need to be adjusted via the TimeZoneOffset.  The default TimeZoneOffset is set up for Eastern Daylight Time.
 
+History
+-------
+Based on "groceryslots" (check_slots.py) by Jeffrey Wintersinger https://github.com/jwintersinger/groceryslots
