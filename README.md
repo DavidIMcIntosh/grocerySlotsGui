@@ -8,13 +8,13 @@ Requirements
 
 Python Libraries:
 
-* requests
+** requests
 
-* python-dateutil
+** python-dateutil
 
-* pychromecast
+** pychromecast
 
-* gtts
+** gtts
 
 
 Installation and Startup
