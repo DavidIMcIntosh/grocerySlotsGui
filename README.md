@@ -20,9 +20,9 @@ Installation and Startup
     pip3 install --user requests python-dateutil pychromecast gtts
     ```
 1. Find your Loblaws Store Location ID:
-    i. Go to https://www.loblaws.ca/store-locator
-    i. Choose a location and click the "Location Details" link
-    i. Find the integer ID at the end of the URL (e.g., `1007` from https://www.loblaws.ca/store-locator/details/1007)
+    1. Go to https://www.loblaws.ca/store-locator
+    1. Choose a location and click the "Location Details" link
+    1. Find the integer ID at the end of the URL (e.g., `1007` from https://www.loblaws.ca/store-locator/details/1007)
 1. Run the main script.
     ```
     python .\checkSlotsGui.py
