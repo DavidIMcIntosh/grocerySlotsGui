@@ -1,8 +1,6 @@
 Grocery Slots
 =============
-This program will periodically check Loblaws or Superstore for open grocery pick-up slots (by default, every 60 seconds), printing open slots to the terminal. The program can also announce via any Chromecast-compatible device (including Google Home) when a new spot opens.
-
-checkSlotsGui.py is a self-contained GUI that does not require any options.
+This program will periodically check any of the Loblaws family of stores (Loblaws, Superstore, Valumart, Nofrills, Zehrs so far) for open grocery pick-up slots (by default, every 5 minutes), displaying the open slots in a GUI widget. The program can also announce via any Chromecast-compatible device (including Google Home) when a new spot opens.
 
 Requirements
 ------------
@@ -10,10 +8,10 @@ Requirements
 
 Usage
 -----
-1. Install necessary Python libraries.
+1. Install necessary Python libraries (there seems to be some variation about how to install the "dateutil" library):
 
     ```
-    pip3 install --user requests python-dateutil
+    pip3 install --user requests python-dateutil pychromecast gtts
     ```
 
 2. Find your Loblaws location ID.
@@ -24,67 +22,36 @@ Usage
 3. Run the main script.
 
     ```
-    python3 check_slots.py --location 1007
-    ```
-    
-GUI usage
----------
-1. Install necessary Python libraries.
-
-    ```
-    pip3 install --user requests python-dateutil
-    ```
-2. Run the script:
-
     python .\checkSlotsGui.py
+    ```
     
-3. If you don't have any ChromeCast devices, 
-
-    python .\checkSlotsGui.py --noChromeCast
-
-
-Getting audible announcements
------------------------------
-You can configure the script to announce new slots via any Chromecast device (including Google Home).
-
-1. Install additional libraries.
-
-    ```
-    pip3 install --user pychromecast gtts
-    ```
-
-2. In a separate terminal, start a web server to serve the text-to-speech audio
-   file to your Chromecast device. By default, this audio file will be stored
-   as `/tmp/out.mp3`, but you can control this via the `AUDIO_PATH` variable in
-   `saytext.py`.
-
-    ```
-    cd /tmp
-    python3 -m http.server
-    ```
-
-3. Change the `HTTP_IP` variable in `saytext.py` to correspond to the IP of
-   your local machine that will serve the audio file to your Chromecast.
-
-4. Run the main script with `--announce`.
-
-    ```
-    python3 check_slots.py --location 1007 --announce
-    ```
-
-Usage reference
+GUI Usage reference
 ---------------
 ```
-usage: check_slots.py [-h] [--location LOCATION] [--delay DELAY] [--tzoffset TZOFFSET] [--announce] [--site {loblaws,superstore}]
-
-Query PC-umbrella grocery store (Loblaws, Superstore, etc.) for open pick-up slots
-
-optional arguments:
-  -h, --help            show this help message and exit
-  --location LOCATION   Integer ID of PC-umbrella (Loblaws, Superstore, etc.) grocery store (default: 1007)
-  --delay DELAY         Delay ins econds between checks (default: 60)
-  --tzoffset TZOFFSET   Timezone offset in hours. Default seems to work for both Toronto and Calgary (default: 4)
-  --announce            Announce new open slots via Chromecast device (including Google home (default: False)
-  --site {loblaws,superstore}
-                        Type of PC-umbrella grocery store (default: loblaws)
+usage: checkSlotsGui.py [--help] [--noChromeCast]
 ```
+
+1. In the GUI, you will need to enter your Store Location string.
+    i. Go to https://www.loblaws.ca/store-locator
+    ii. Choose a location and click the "Location Details" link
+    iii. Find the integer ID at the end of the URL (e.g., `1007` from https://www.loblaws.ca/store-locator/details/1007)
+   The 4 digit string at the end of this URL must be entered into the Store Location box in the GUI.
+   If you want your store location to always be the default when you start the GUI, adjust the "DEFAULT_STORE=1007" line in checkSlotsGui.py.
+
+2. To poll your store periodically and show latest results, check the "Poll fo Openings" checkbox.  The frequency of checks is controlled with the "Check frequency (seconds):" entry.  The "Check Now" button (at any time) will cause an immediate check of the store.
+
+3. Period polling needs to be restarted after any change to "Store Type".
+
+4. If you want any change in the earliest timeslot to be announced on a Chromecast device (e.g. GoogleHome), click the "Start Server" button (this only needs to be done once), select the device with the "Broadcast Device" drop-down, and make sure the "Broadcast?" checkbox is checked.  These can be adjusted at any time, and the current values will be used at the next Check time.
+
+5. Clicking the "Refresh Devices" at any time will refresh the list of available Chromecast devices.
+
+6. Technical detail: the "Start Server" button starts up an HTTP server in a subdirectory "audio" of the directory containing the checkSlotsGui.py script.  If you want to start such a server manually in some other location, you do need to tell the GUI where the root of this server is with the "Chromecast Server Directory". The GUI will put the announcements into this directory for ChromeCast and then broadcast the announcement file to the chromecast devices.  Once you have a server running (either by pressing the "Start Server" button or starting a server in a separate console), you can test the Broadcast capabilities with the "Test" button, which will broadcast "Hello World" to the selected Broadcast device.
+    
+7. If you don't have any ChromeCast devices and want to prevent the GUI from even checking for ChromeCast devices, use the --noChromeCast startup option.  If you do this, you do not need to install the pychromecast and gtts libraries: 
+    ```
+    python .\checkSlotsGui.py --noChromeCast
+    ```
+    
+8. Technical detail: The Loblaws sites seem to keep their time-points in Universal Cordinated Time (UCT or GMT).  To display them in local time, they need to be adjusted via the TimeZoneOffset.  The default TimeZoneOffset is set up for Eastern Daylight Time.
+
