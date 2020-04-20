@@ -6,6 +6,17 @@ Requirements
 ------------
 * Python 3
 
+Python Libraries:
+
+* requests
+
+* python-dateutil
+
+* pychromecast
+
+* gtts
+
+
 Installation and Startup
 ------------------------
 1. Instally Python3 if its not already on the system.
