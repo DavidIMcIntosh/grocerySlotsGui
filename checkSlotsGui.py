@@ -100,7 +100,7 @@ class sayText:
     mc = cast.media_controller
     #technically speaking, the internet http standard _requires_ that IP addresses be enclosed in square braces.
     #But, most systems are permissive and allow a raw IP without square braces.  And in fact,
-    #mc.play_media WILL NOT WORK with the square braces, i.e. it doesn't even implement the required standard....
+    #this WILL NOT WORK with the square braces, i.e. somebody somewhere doesn't even implement the required standard....
     #mc.play_media('http://[%s]:%s%s' % (self.HTTP_IP, self.HTTP_PORT, mp3File), 'audio/mp3')
     mc.play_media('http://%s:%s%s' % (self.HTTP_IP, self.HTTP_PORT, mp3File), 'audio/mp3')
     mc.block_until_active()
