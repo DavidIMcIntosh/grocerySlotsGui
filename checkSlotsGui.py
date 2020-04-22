@@ -17,6 +17,25 @@ import subprocess
 
 DEFAULT_STORE=1021
 DEFAULT_TYPE='loblaws'
+LAN_OR_WIFI_SERVER_IP='192.168.1.1'
+#Some common values
+#Note: this only matters if you have multiple connections, e.g. VPN and wifi
+#LAN_OR_WIFI_SERVER_IP='192.168.1.1'    #54 brands
+#LAN_OR_WIFI_SERVER_IP='192.168.0.1'    #35 brands
+#LAN_OR_WIFI_SERVER_IP='10.0.0.1'   #19 brands
+#LAN_OR_WIFI_SERVER_IP='192.168.2.1'    #18 brands
+#LAN_OR_WIFI_SERVER_IP='192.168.10.1'    #8 brands
+#LAN_OR_WIFI_SERVER_IP='192.168.254.1'    #5 brands
+#LAN_OR_WIFI_SERVER_IP='192.168.15.1'    #4 brands
+#LAN_OR_WIFI_SERVER_IP='192.168.123.1'    #4 brands
+#LAN_OR_WIFI_SERVER_IP='192.168.100.1'    #4 brands
+#LAN_OR_WIFI_SERVER_IP='192.168.3.1'    #2 brands
+#LAN_OR_WIFI_SERVER_IP='192.168.4.1'    #2 brands
+#LAN_OR_WIFI_SERVER_IP='192.168.8.1'    #2 brands
+#LAN_OR_WIFI_SERVER_IP='192.168.16.1'    #2 brands
+#LAN_OR_WIFI_SERVER_IP='192.168.20.1'    #2 brands
+#LAN_OR_WIFI_SERVER_IP='10.1.1.1'   #2 brands
+
 
 SITES = [ 'loblaws', 'superstore', 'valumart', 'nofrills', 'zehrs']
 DOMAINS = {
@@ -48,8 +67,7 @@ def startServer(drct):
 def get_ip():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     try:
-        # doesn't even have to be reachable
-        s.connect(('10.255.255.255', 1))
+        s.connect((LAN_OR_WIFI_SERVER_IP, 32767))
         IP = s.getsockname()[0]
     except:
         IP = '127.0.0.1'
