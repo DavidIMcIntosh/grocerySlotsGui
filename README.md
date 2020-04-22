@@ -50,6 +50,7 @@ Usage: checkSlotsGui.py [--help] [--noChromeCast]
     ```
     python .\checkSlotsGui.py --noChromeCast
     ```
+1. If you DO have ChromeCast devices, and they are not appearing in the list of devices, it may be because the IP address is incorrect.  This can happen on systems with multiple network connections (e.g. wifi and hard-wired ethernet, or regular wifi plus a virtual VPN adapter).  In that case, you need to put in the IP of your computer.  You can adjust the LAN_OR_WIFI_SERVER_IP variable in the .py file to be the IP address of your WIFI router (where the other ChromeCast machines connect), and then the IP address in the GUI should be the correct IP address of your machine.
 1. Technical detail: The Loblaws sites seem to keep their time-points in Universal Cordinated Time (UCT or GMT).  To display them in local time, they need to be adjusted via the TimeZoneOffset.  The default TimeZoneOffset is set up for Eastern Daylight Time.
 
 History
