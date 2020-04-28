@@ -30,7 +30,7 @@ Installation and Startup
 
 Windows Self-Installer
 ----------------------
-(This is not quite ready yet.)
+(This is not quite ready yet.  Currently, you have to run the install .exe twice for it to work if it needs to install Python.)
 
 The file checkSlotsGui.exe is a self-extracting zip file with a rudimentary install script.  For the average user, just download this file somewhere and double-click.
 
