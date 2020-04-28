@@ -30,6 +30,8 @@ Installation and Startup
 
 Windows Self-Installer
 ----------------------
+(This is not quite ready yet.)
+
 The file checkSlotsGui.exe is a self-extracting zip file with a rudimentary install script.  For the average user, just download this file somewhere and double-click.
 
 Technical details: The script should execute automatically after the self-extracting zip file unzips itself.  The install script will check for an installed version of Python.  If not found, it will attempt to install Python 3.8.2.  If install is successful, or if Python 3.8.2 or later is already installed, the script will then install the required Python libraries (see above).  Finally, the script will copy the checkSlotsGuy.py script to a checkSlotsGui directory in the users LocalAppDir and copy two start-up .cmd files to the users desktop.
