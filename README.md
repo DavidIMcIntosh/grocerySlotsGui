@@ -12,17 +12,13 @@ Requirements
   * gtts
 
 
-Manual Installation and Startup
--------------------------------
+Manual Installation and Startup, Python version
+-----------------------------------------------
 1. Install Python3 if its not already on the system.
 1. Install necessary Python libraries (there seems to be some variation about how to install the "dateutil" library):
     ```
     pip3 install --user requests python-dateutil pychromecast gtts
     ```
-1. Find your Loblaws Store Location ID:
-    1. Go to https://www.loblaws.ca/store-locator
-    1. Choose a location and click the "Location Details" link
-    1. Find the integer ID at the end of the URL (e.g., `1007` from https://www.loblaws.ca/store-locator/details/1007)
 1. Run the script:
     ```
     python .\checkSlotsGui.py
@@ -40,7 +36,7 @@ Technical details: The script should execute automatically after the self-extrac
 GUI Usage reference
 ---------------
 ```
-Usage: checkSlotsGui.py [--help] [--noChromeCast]
+Usage: checkSlotsGui [--help] [--noChromeCast]
 ```
 
 1. In the GUI, you will need to enter your Store Location string.
