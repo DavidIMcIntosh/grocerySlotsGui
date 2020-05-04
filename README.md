@@ -4,6 +4,8 @@ This program will periodically check any of the Loblaws family of stores (Loblaw
 
 Requirements
 ------------
+checkSlotsGuiInstall.exe: no requirements.
+checkSlotsGuiPythonInstall: will install:
 * Python 3
 * Python Libraries:
   * requests
@@ -28,7 +30,7 @@ Windows Self-Installer
 ----------------------
 The file checkSlotsGuiInstaller.exe is a self-extracting zip file with a rudimentary install script. It installs a executable with everything built-in. For the average user, just download this file somewhere and double-click, but be aware that quite a number of anti-virus programs will flag this as malware.  (Google "pyinstaller executables flagged as false positive by anti-virus software")  For example, Avast flaggs this as malware, Kaspersky does not.
 
-The file checkSlotsGui.exe is also a self-extracting zip file with a rudimentary install script, but it installs Python, as well as the python script and dependencies.
+The file checkSlotsGuiPythonInstall.exe is also a self-extracting zip file with a rudimentary install script, but it installs Python, as well as the python script and dependencies.
 Technical details: The script should execute automatically after the self-extracting zip file unzips itself.  The install script will check for an installed version of Python.  If not found, it will attempt to install Python 3.8.2.  If install is successful, or if Python 3.8.2 or later is already installed, the script will then install the required Python libraries (see above).  Finally, the script will copy the checkSlotsGuy.py script to a checkSlotsGui directory in the users LocalAppDir and copy two start-up .cmd files to the users desktop.
 
 
