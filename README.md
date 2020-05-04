@@ -5,6 +5,7 @@ This program will periodically check any of the Loblaws family of stores (Loblaw
 Requirements
 ------------
 checkSlotsGuiInstall.exe: no requirements.
+
 checkSlotsGuiPythonInstall: will install:
 * Python 3
 * Python Libraries:
